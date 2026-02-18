@@ -504,14 +504,14 @@
                     <div class="division-title" data-i18n="d4title">Community & Global Network</div>
                 </div>
                 <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
-                    <div class="product-card">
+                    <a href="https://guild.fomusglobal.com/index_en.html" target="_blank" class="product-card" style="text-decoration:none;color:inherit;">
                         <img src="kyoto-collab-2.jpg" alt="FOMUS GUILD">
                         <div class="product-card-name">FOMUS GUILD<br><span style="font-weight:400;color:var(--ink-sub);font-size:11px;line-height:1.5;display:block;margin-top:4px;" data-i18n="d4guild">A membership community connecting artisans, creators, and supporters who share FOMUS's vision. Co-creating the future of Japanese craft culture together.</span></div>
-                    </div>
-                    <div class="product-card">
-                        <img src="FOMUSlogo_edited.png" alt="GLOBAL PARTNERSHIP">
+                    </a>
+                    <a href="https://partnership.fomusglobal.com/" target="_blank" class="product-card" style="text-decoration:none;color:inherit;">
+                        <img src="FOMUSlogo_edited.png" alt="GLOBAL PARTNERSHIP" style="object-fit:contain;background:#f5f4ef;padding:16px;">
                         <div class="product-card-name">GLOBAL PARTNERSHIP<br><span style="font-weight:400;color:var(--ink-sub);font-size:11px;line-height:1.5;display:block;margin-top:4px;" data-i18n="d4partner">An international network of collaborators across the Middle East, Europe, and Asia. Building bridges between Japanese culture and the world through business partnerships.</span></div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -530,9 +530,9 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13L2 4"/></svg>
                     fomus.official@gmail.com
                 </a>
-                <a href="https://www.fomus.jp/" target="_blank" class="contact-chip">
+                <a id="contactWeb" href="https://www.fomus.jp/" target="_blank" class="contact-chip">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg>
-                    www.fomus.jp
+                    <span id="contactWebText">www.fomus.jp</span>
                 </a>
             </div>
             <a class="save-btn" href="https://wa.me/818053863983" target="_blank" data-i18n="saveBtn">Save Contact</a>
@@ -650,6 +650,16 @@
                 } else { el.textContent = t[key]; }
             }
         });
+        // Contact website link: JP→fomus.jp, EN/AR→fomusglobal.com
+        const contactWeb = document.getElementById('contactWeb');
+        const contactWebText = document.getElementById('contactWebText');
+        if (lang === 'ja') {
+            contactWeb.href = 'https://www.fomus.jp/';
+            contactWebText.textContent = 'www.fomus.jp';
+        } else {
+            contactWeb.href = 'https://www.fomusglobal.com/';
+            contactWebText.textContent = 'www.fomusglobal.com';
+        }
     }
 
     const navbar = document.getElementById('navbar');
