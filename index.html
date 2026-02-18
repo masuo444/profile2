@@ -300,8 +300,9 @@
             .video-grid { grid-template-columns: 1fr; gap: 12px; }
             .video-card-info { padding: 12px 16px; }
             .division-body { grid-template-columns: 1fr; gap: 16px; }
-            .product-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .product-card-name { font-size: 11px; padding: 8px 10px; }
+            .product-grid, .product-grid[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 12px; }
+            .product-card img { aspect-ratio: 16/9; }
+            .product-card-name { font-size: 13px; padding: 12px 14px; }
             .division-num { font-size: 24px; }
             .division-title { font-size: 18px; }
             .contact-row { flex-direction: column; }
@@ -388,7 +389,7 @@
             </div>
             <div class="video-grid reveal">
                 <div class="video-card">
-                    <video muted loop playsinline controls>
+                    <video muted loop playsinline controls poster="fomus-poster.jpg">
                         <source src="fomus-video.mp4" type="video/mp4">
                     </video>
                     <div class="video-card-info">
@@ -534,7 +535,7 @@
                     www.fomus.jp
                 </a>
             </div>
-            <a class="save-btn" href="#" id="saveContactBtn" data-i18n="saveBtn">Save Contact</a>
+            <a class="save-btn" href="https://wa.me/818053863983" target="_blank" data-i18n="saveBtn">Save Contact</a>
         </div>
     </section>
 
@@ -655,14 +656,6 @@
     window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); });
 
 
-    document.getElementById('saveContactBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        const vcard = ['BEGIN:VCARD','VERSION:3.0','N:Masuo;Keisuke;;;','FN:Keisuke Masuo (MaSU)','ORG:FOMUS LLC','TITLE:Founder & CEO','EMAIL;TYPE=WORK:fomus.official@gmail.com','URL:https://www.fomus.jp/','NOTE:FOMUS - Japanese Cultural IP Company.','END:VCARD'].join('\n');
-        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href = url; a.download = 'Keisuke_Masuo_FOMUS.vcf'; a.click();
-        URL.revokeObjectURL(url);
-    });
     </script>
 </body>
 </html>
